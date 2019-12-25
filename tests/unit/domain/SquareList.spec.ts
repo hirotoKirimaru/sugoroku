@@ -2,7 +2,7 @@ import SquareList from "@/domain/SquareList";
 import Square from "@/domain/Square";
 
 function extracted() {
-  var squareList: SquareList = new SquareList();
+  let squareList: SquareList = new SquareList();
 
   squareList.add(START);
   squareList.add(LAWYER);
