@@ -4,8 +4,10 @@
 export default class Square {
   /** 前回の現在位置 */
   prePosition: string;
+
   /** 現在地 */
   position: string;
+
   /** 説明 */
   private description: string;
 

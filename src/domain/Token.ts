@@ -1,10 +1,11 @@
 /**
  * 駒
  */
-import Square from "@/domain/Square";
+import Square from '@/domain/Square';
 
 export default class Token {
   private id: string;
+
   /** 現在地 */
   private currentSquare: Square;
 

@@ -1,13 +1,13 @@
 /**
  * マス一覧
  */
-import Square from "@/domain/Square";
+import Square from '@/domain/Square';
 
 export default class SquareList {
   private squareList: Array<Square>;
 
   constructor() {
-    this.squareList = new Array<Square>();
+    this.squareList = [];
   }
 
   public add(square: Square) {
@@ -15,9 +15,9 @@ export default class SquareList {
   }
 
   // Listのもちものではない。
-  public move(current: Square, next: Square): void {
-    this.validateTransition(current, next);
-  }
+  // public move(current: Square, next: Square): void {
+  //   this.validateTransition(current, next);
+  // }
 
 
   /**
@@ -25,12 +25,12 @@ export default class SquareList {
    *
    * @param target 現在マス
    */
-  public validateTransition(current: Square, next: Square): void {
-    if (current.position === next.prePosition) {
-      return;
-    }
-    throw new Error("次のマスに遷移できません");
-  }
+  // public validateTransition(current: Square, next: Square): void {
+  //   if (current.position === next.prePosition) {
+  //     return;
+  //   }
+  //   throw new Error('次のマスに遷移できません');
+  // }
 
   /**
    * 対象のマスから次のマスに遷移できるリストを取得する
@@ -38,6 +38,6 @@ export default class SquareList {
    * @param target 現在マス
    */
   public nextList(target: Square): Array<Square> {
-    return this.squareList.filter(e => e.prePosition == target.position);
+    return this.squareList.filter(e => e.prePosition === target.position);
   }
 }
