@@ -2,12 +2,17 @@
  * マス
  */
 export default class Square {
-  private a: string;
-  private b: string;
+  /** 前回の現在位置 */
+  prePosition: string;
+  /** 現在地 */
+  position: string;
+  /** 説明 */
+  private description: string;
 
-  constructor(a: string, b: string) {
-    this.a = a;
-    this.b = b;
+  constructor(prePosition: string, position: string, description ?: string) {
+    this.prePosition = prePosition;
+    this.position = position;
+    this.description = description || '';
   }
 
   public static init(): Square {
