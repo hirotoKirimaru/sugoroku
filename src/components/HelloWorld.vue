@@ -1,10 +1,8 @@
 <template>
   <div class="hello">
-    <ul>
-      <li v-for="(item, key, index) in squareList" :key="index">
-        <p :value="item.description"></p>
-      </li>
-    </ul>
+      <div v-for="item in squareList" :key="item.position">
+        {{item.description}}
+      </div>
   </div>
 </template>
 
@@ -18,20 +16,21 @@ import Square from '@/domain/Square';
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
 
-  private token?: Token = undefined;
+  token!: Token;
 
-  private squareList?: SquareList = undefined;
+  squareList: SquareList = new SquareList();
+  // squareList: Array<Square> = [];
 
   mounted() : void{
     this.createToken();
     this.createSquareList();
   }
 
-  private createToken() {
+  createToken() {
     this.token = new Token('1');
   }
 
-  private createSquareList() {
+  createSquareList() {
     const START: Square = new Square('-', '0', 'スタート');
     const LAWYER: Square = new Square('0', '101', '弁護士に就職マス');
     const IDOL: Square = new Square('101', '102', 'アイドルに就職マス');
@@ -40,17 +39,17 @@ export default class HelloWorld extends Vue {
     const PAYDAY1: Square = new Square('103', '301', '給料日');
     const PAYDAY2: Square = new Square('201', '301', '給料日');
     const END: Square = new Square('301', '900', 'ゴール');
-    const squareList: SquareList = new SquareList();
 
-    squareList.add(START);
-    squareList.add(LAWYER);
-    squareList.add(IDOL);
-    squareList.add(PART);
-    squareList.add(OFFICE_WORKER);
-    squareList.add(PAYDAY1);
-    squareList.add(PAYDAY2);
-    squareList.add(END);
-    this.squareList = squareList;
+    this.squareList.add(START);
+    this.squareList.add(LAWYER);
+    this.squareList.add(IDOL);
+    this.squareList.add(PART);
+    this.squareList.add(OFFICE_WORKER);
+    this.squareList.add(PAYDAY1);
+    this.squareList.add(PAYDAY2);
+    this.squareList.add(END);
+
+    this.squareList = this.$set(this.squareList, 'squareList', this.squareList.getSquareList());
   }
 }
 </script>

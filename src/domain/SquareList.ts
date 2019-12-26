@@ -4,10 +4,14 @@
 import Square from '@/domain/Square';
 
 export default class SquareList {
-  private squareList: Array<Square>;
+  squareList: Square[];
 
-  constructor() {
-    this.squareList = [];
+  constructor(squares ?:Array<Square>) {
+    this.squareList = squares || [];
+  }
+
+  public getSquareList(): Array<Square> {
+    return this.squareList;
   }
 
   public add(square: Square) {
