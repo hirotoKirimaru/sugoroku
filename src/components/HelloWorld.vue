@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-      <div v-for="item in squareList" :key="item.position">
+      <div v-for="item in squareList.squareList" :key="item.position">
         {{item.description}}
       </div>
   </div>
@@ -19,7 +19,6 @@ export default class HelloWorld extends Vue {
   token!: Token;
 
   squareList: SquareList = new SquareList();
-  // squareList: Array<Square> = [];
 
   mounted() : void{
     this.createToken();
@@ -48,8 +47,6 @@ export default class HelloWorld extends Vue {
     this.squareList.add(PAYDAY1);
     this.squareList.add(PAYDAY2);
     this.squareList.add(END);
-
-    this.squareList = this.$set(this.squareList, 'squareList', this.squareList.getSquareList());
   }
 }
 </script>
