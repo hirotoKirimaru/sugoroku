@@ -26,10 +26,7 @@ export default class Square {
    *
    * @param next
    */
-  public validateTransition(next: Square): void {
-    if (this.position === next.prePosition) {
-      return;
-    }
-    throw new Error('次のマスに遷移できません');
+  public canTransition(next: Square): boolean {
+    return this.position === next.prePosition;
   }
 }

@@ -20,7 +20,7 @@ export default class Token {
    * @param next 次のマス
    */
   public move(next: Square): void {
-    this.currentSquare.validateTransition(next);
+    this.currentSquare.canTransition(next);
     this.currentSquare = next;
   }
 }

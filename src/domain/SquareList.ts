@@ -20,6 +20,6 @@ export default class SquareList {
    * @param target 現在マス
    */
   public nextList(target: Square): Array<Square> {
-    return this.squareList.filter(e => e.prePosition === target.position);
+    return this.squareList.filter(e => target.canTransition(e));
   }
 }
