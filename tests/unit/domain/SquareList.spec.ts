@@ -1,14 +1,14 @@
 import SquareList from '@/domain/SquareList';
 import Square from '@/domain/Square';
 
-let START: Square = new Square('-', '0', 'スタート');
-let LAWYER: Square = new Square('0', '101', '弁護士に就職マス');
-let IDOL: Square = new Square('101', '102', 'アイドルに就職マス');
-let PART: Square = new Square('102', '103', 'フリーターマス');
-let OFFICE_WORKER: Square = new Square('0', '201', '会社員に就職マス');
-let PAYDAY1: Square = new Square('103', '301', '給料日');
-let PAYDAY2: Square = new Square('201', '301', '給料日');
-let END: Square = new Square('301', '900', 'ゴール');
+const START: Square = new Square('-', '0', 'スタート');
+const LAWYER: Square = new Square('0', '101', '弁護士に就職マス');
+const IDOL: Square = new Square('101', '102', 'アイドルに就職マス');
+const PART: Square = new Square('102', '103', 'フリーターマス');
+const OFFICE_WORKER: Square = new Square('0', '201', '会社員に就職マス');
+const PAYDAY1: Square = new Square('103', '301', '給料日');
+const PAYDAY2: Square = new Square('201', '301', '給料日');
+const END: Square = new Square('301', '900', 'ゴール');
 
 function extracted() {
   const squareList: SquareList = new SquareList();
@@ -28,7 +28,7 @@ describe('マス一覧', () => {
   it('初期位置の次は、弁護士マスか会社員マス', () => {
     const squareList: SquareList = extracted();
 
-    const expected : Array<Square> = new Array<Square>();
+    const expected : Array<Square> = [];
     expected.push(LAWYER);
     expected.push(OFFICE_WORKER);
 
