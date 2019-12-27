@@ -7,7 +7,7 @@ export default class Token {
   private id: string;
 
   /** 現在地 */
-  private currentSquare: Square;
+  currentSquare: Square;
 
   constructor(id: string, square ?: Square) {
     this.id = id;
@@ -20,7 +20,9 @@ export default class Token {
    * @param next 次のマス
    */
   public move(next: Square): void {
-    this.currentSquare.canTransition(next);
+    if (!this.currentSquare.canTransition(next)) {
+      throw new Error('次のマスに遷移できません');
+    }
     this.currentSquare = next;
   }
 }
