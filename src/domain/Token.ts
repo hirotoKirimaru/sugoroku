@@ -13,4 +13,14 @@ export default class Token {
     this.id = id;
     this.currentSquare = square || Square.init();
   }
+
+  /**
+   * 駒を次のマスに進める。
+   *
+   * @param next 次のマス
+   */
+  public move(next: Square): void {
+    this.currentSquare.validateTransition(next);
+    this.currentSquare = next;
+  }
 }

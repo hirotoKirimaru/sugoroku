@@ -20,4 +20,16 @@ export default class Square {
   public static init(): Square {
     return new Square('0', '0');
   }
+
+  /**
+   * 対象のマスへ画面遷移できるか確認する
+   *
+   * @param next
+   */
+  public validateTransition(next: Square): void {
+    if (this.position === next.prePosition) {
+      return;
+    }
+    throw new Error('次のマスに遷移できません');
+  }
 }
