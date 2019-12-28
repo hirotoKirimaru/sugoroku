@@ -1,8 +1,28 @@
 <template>
   <div class="hello">
-      <div v-for="item in squareList.squareList" :key="item.position">
-        {{item.description}}
-      </div>
+    <button @click="init">すたーと</button>
+      <template>
+        <p>コマ</p>
+        <p>ID: {{ token.id }}</p>
+        <p>現在マス: {{ token.currentSquare.position }}</p>
+      </template>
+    <p>選択可能なマス：</p>
+    <select class="form-control"
+            v-model="selectedSquare"
+    >
+<!--    <select class="form-control"-->
+<!--            :value="selectedSquare"-->
+<!--            @input="createToken2($event)"-->
+<!--    >-->
+    <!--            @input="selectedSquare =$event.target.value"-->
+      <option v-for="item in getNextList()" :key="item.prePosition + item.position"
+                    :value="item"
+      >
+      <!--              :value="item"-->
+          {{ item.description }}
+      </option>
+    </select>
+    <button @click="select">せれくと</button>
   </div>
 </template>
 
@@ -16,17 +36,43 @@ import Square from '@/domain/Square';
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
 
-  token!: Token;
+  token?: Token = new Token();
 
   squareList: SquareList = new SquareList();
 
+  selectedSquare?: Square = new Square('', '', '');
+
   mounted() : void{
-    this.createToken();
     this.createSquareList();
   }
 
+  init() {
+    this.createToken();
+  }
+
   createToken() {
-    this.token = new Token('1');
+    this.token = new Token('100');
+  }
+
+  // createToken2(a :Event) {
+  //   const b :any = a.target.value;
+  // this.selectedSquare = b;
+  // }
+
+  getNextList() :Array<Square> {
+    if (typeof this.token === 'undefined') {
+      return [];
+    }
+
+    return this.squareList.nextList(this.token.currentSquare);
+  }
+
+  select() {
+    if (typeof this.token === 'undefined' || typeof this.selectedSquare === 'undefined') {
+      return;
+    }
+
+    this.token.move(this.selectedSquare);
   }
 
   createSquareList() {

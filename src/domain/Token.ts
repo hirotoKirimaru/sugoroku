@@ -4,13 +4,13 @@
 import Square from '@/domain/Square';
 
 export default class Token {
-  private id: string;
+  id: string;
 
   /** 現在地 */
   currentSquare: Square;
 
-  constructor(id: string, square ?: Square) {
-    this.id = id;
+  constructor(id?: string, square ?: Square) {
+    this.id = id || '';
     this.currentSquare = square || Square.init();
   }
 

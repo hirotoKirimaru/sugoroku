@@ -9,7 +9,7 @@ export default class Square {
   position: string;
 
   /** 説明 */
-  private description: string;
+  description: string;
 
   constructor(prePosition: string, position: string, description ?: string) {
     this.prePosition = prePosition;
