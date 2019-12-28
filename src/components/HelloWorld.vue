@@ -58,7 +58,9 @@ export default class HelloWorld extends Vue {
       return [];
     }
 
-    return this.squareList.nextList(this.token.currentSquare);
+    const list = this.squareList.nextList(this.token.currentSquare);
+    this.selectedSquare = list[0] || [];
+    return list;
   }
 
   select() {
