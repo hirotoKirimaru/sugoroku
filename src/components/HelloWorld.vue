@@ -10,15 +10,9 @@
     <select class="form-control"
             v-model="selectedSquare"
     >
-<!--    <select class="form-control"-->
-<!--            :value="selectedSquare"-->
-<!--            @input="createToken2($event)"-->
-<!--    >-->
-    <!--            @input="selectedSquare =$event.target.value"-->
       <option v-for="item in getNextList()" :key="item.prePosition + item.position"
                     :value="item"
       >
-      <!--              :value="item"-->
           {{ item.description }}
       </option>
     </select>
