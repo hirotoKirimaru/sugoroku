@@ -46,11 +46,6 @@ export default class HelloWorld extends Vue {
     this.token = new Token('100');
   }
 
-  // createToken2(a :Event) {
-  //   const b :any = a.target.value;
-  // this.selectedSquare = b;
-  // }
-
   getNextList() :Array<Square> {
     if (typeof this.token === 'undefined') {
       return [];
