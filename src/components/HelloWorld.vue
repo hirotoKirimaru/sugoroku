@@ -32,7 +32,7 @@ export default class HelloWorld extends Vue {
 
   squareList: SquareList = new SquareList();
 
-  selectedSquare?: Square = Square.init();
+  selectedSquare: Square = Square.init();
 
   mounted() : void{
     this.createSquareList();
@@ -52,8 +52,15 @@ export default class HelloWorld extends Vue {
     }
 
     const list = this.squareList.nextList(this.token.currentSquare);
-    // this.selectedSquare = list[0] || [];
+    this.setSelectedSquare(list[0]);
+
     return list;
+  }
+
+  setSelectedSquare(square: Square) {
+    if (this.selectedSquare.canTransition(square)) {
+      this.selectedSquare = square;
+    }
   }
 
   select() {
