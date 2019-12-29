@@ -21,20 +21,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import Token from '@/domain/Token';
-import SquareList from '@/domain/SquareList';
 import Square from '@/domain/Square';
+import SquareList from '@/domain/SquareList';
 
 @Component
 export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
-
   token?: Token = new Token();
 
   squareList: SquareList = new SquareList();
 
-  selectedSquare?: Square = new Square('', '', '');
+  selectedSquare?: Square = Square.init();
 
   mounted() : void{
     this.createSquareList();
