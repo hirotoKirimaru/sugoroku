@@ -17,7 +17,7 @@
       </option>
     </select>
     <button @click="select">せれくと</button>
-    <Board/>
+    <Board :squareList="squareList"/>
   </div>
 </template>
 
