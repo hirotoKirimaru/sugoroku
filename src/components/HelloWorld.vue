@@ -17,6 +17,7 @@
       </option>
     </select>
     <button @click="select">せれくと</button>
+    <Board/>
   </div>
 </template>
 
@@ -25,8 +26,11 @@ import { Component, Vue } from 'vue-property-decorator';
 import Token from '@/domain/Token';
 import Square from '@/domain/Square';
 import SquareList from '@/domain/SquareList';
+import Board from '@/components/Board.vue';
 
-@Component
+@Component({
+  components: { Board },
+})
 export default class HelloWorld extends Vue {
   token?: Token = new Token();
 
