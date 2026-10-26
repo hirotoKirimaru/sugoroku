@@ -79,10 +79,5 @@
       "vue-cli-service lint",
       "git add"
     ]
-  },
-  "resolutions": {
-    "**/@typescript-eslint/typescript-estree/semver": "5.7.2",
-    "**/form-data": "^2.5.6",
-    "**/qs": "^6.16.1"
   }
 }
