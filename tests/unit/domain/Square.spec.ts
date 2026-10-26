@@ -1,6 +1,5 @@
 import Square from '@/domain/Square';
 
-
 const START: Square = new Square('-', '0', 'スタート');
 const LAWYER: Square = new Square('0', '101', '弁護士に就職マス');
 const END: Square = new Square('301', '900', 'ゴール');

@@ -7,7 +7,7 @@
         <p>現在マス: {{ token.currentSquare.position }}</p>
       </template>
     <p>選択可能なマス：</p>
-    <select class="form-control"
+    <select class="form-control" aria-label="選択可能なマス"
             v-model="selectedSquare"
     >
       <option v-for="item in getNextList()" :key="item.prePosition + item.position"
@@ -38,7 +38,7 @@ export default class HelloWorld extends Vue {
 
   selectedSquare: Square = Square.init();
 
-  mounted() : void{
+  mounted() : void {
     this.createSquareList();
   }
 
