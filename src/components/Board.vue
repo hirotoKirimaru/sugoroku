@@ -19,7 +19,7 @@ export default class Board extends Vue {
 
   linkDataArray: Array<any> = [];
 
-  mounted(): void{
+  mounted(): void {
     this.setNodeDataAndLinkData();
 
     this.diagram = new go.Diagram('board');
